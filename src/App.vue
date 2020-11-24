@@ -94,7 +94,7 @@ export default {
             ]
           }
         ],
-       
+
       },
       defaultData: {
         name:1,

@@ -46,13 +46,13 @@
       >
       </el-input-number>
 
-      <el-select 
+      <el-select
         style="width:100%"
         v-if='item.type==="Select"'
         v-model="forms[item.key]"
         :placeholder='item.placeholder'
         :multiple='item.multiple'
-        collapse-tags
+        :collapse-tags='item.collapsetags'
         :disabled='item.disabled'
         :clearable='item.clearable'
         :filterable='item.filterable'
@@ -93,7 +93,7 @@
         :range='item.range'
        >
       </el-slider>
-      
+
       <el-time-select
         style="width:100%"
         v-if='item.type==="Timeselect"'
@@ -200,7 +200,7 @@
         >
       </el-date-picker>
 
-      <el-radio-group 
+      <el-radio-group
         style="width:100%"
         v-if='item.type==="Radio"'
         v-model="forms[item.key]"
@@ -231,7 +231,7 @@
         </div>
       </el-checkbox-group>
 
-  </div>      
+  </div>
 </template>
 
 <script>

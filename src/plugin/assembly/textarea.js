@@ -6,7 +6,7 @@ export default class MTextarea extends assembly{
     name='文本域',
     col=24,
     key='Textarea'+ new Date().getTime(),
-    rows=1
+    rows=2
   ) {
     super(type,name,col,key);
     this.showFrom = ['name', 'col', 'key','rows','minlength','maxlength','showwordlimit','placeholder',

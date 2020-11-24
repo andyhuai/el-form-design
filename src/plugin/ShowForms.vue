@@ -4,8 +4,8 @@
     <el-form :key="formkey" ref="showform" :model="form"  :label-position="data.formsetting.labelPosition" :label-width="data.formsetting.labelwidth+'px'" :size="data.formsetting.formsize">
       <el-row :gutter="10">
         <el-col v-for="(item,index) in data.forms" :key="index" :span="item.col">
-          <el-form-item 
-            v-if='["TableForm","Divider","p"].indexOf(item.type) == -1 '
+          <el-form-item
+            v-if='["TableForm","Divider","p"].indexOf(item.type) === -1 '
             :label="item.name"
             :prop='item.key'
             :rules='item.rules'
@@ -14,10 +14,10 @@
           </el-form-item>
           <el-divider v-if="item.type === 'Divider'" :content-position='item.contentposition'>{{item.text}}</el-divider>
           <p v-if="item.type === 'p'"  :style="{'text-align': item.contentposition,'font-size':item.fontsize+'px',color:item.textcolor}">{{item.text}}</p>
-          <el-form-item 
+          <el-form-item
             v-if='item.type==="TableForm"'
             :label="item.name"
-            :prop='item.key' 
+            :prop='item.key'
             :rules='item.rules'
           >
             <showTableForm :ref="item.id" :form='form' :data="item" @settabledata='settabledata'/>
@@ -30,11 +30,11 @@
         </el-col>
       </el-row>
     </el-form>
-  </div>      
+  </div>
 </template>
 
 <script>
-// 初始化form 
+// 初始化form
 // 1 下拉框多选时为 数组
 // 2 开关进入之后 默认 false
 // 3 滑块范围选择时为数组
@@ -85,7 +85,7 @@ export default {
         }
       })
       this.form = obj
-    },  
+    },
     // 设置table 的数据
     settabledata (data) {
       this.form[data.field] = data.data
@@ -94,7 +94,7 @@ export default {
       let pd = true
       // 调用表格的提交按钮
       for (let k in this.$refs) {
-        if (k != 'showform') {
+        if (k !== 'showform') {
           let pdt = this.$refs[k][0].submitForm('dynamicValidateForm')
           if (!pdt) {
             pd = false

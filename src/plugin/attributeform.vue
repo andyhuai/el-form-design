@@ -89,10 +89,10 @@
           <el-form-item v-if='form.showFrom.indexOf("allowcreate") !== -1 && form.filterable' label="可否创建选项">
             <el-switch v-model="form.allowcreate" active-color="#13ce66" inactive-color="#ff4949"></el-switch>
           </el-form-item>
-          <el-form-item v-if='form.showFrom.indexOf("collapsetags") !== -1 && form.multiple' label="选择内容全部展示">
+          <el-form-item v-if='form.showFrom.indexOf("collapsetags") !== -1 && form.multiple' label="选择内容折叠">
             <el-switch v-model="form.collapsetags" active-color="#13ce66" inactive-color="#ff4949"></el-switch>
           </el-form-item>
-             
+
           <!-- 开关 -->
           <el-form-item v-if='form.showFrom.indexOf("width") !== -1' label="开关宽度">
             <el-input-number :min="40" :max="100" :step="1"  v-model="form.width"></el-input-number>
@@ -125,8 +125,8 @@
             <el-time-picker
               v-model="form.pickeroptions.start"
               placeholder="开始时间"
-              value-format='HH:mm'  
-              format='HH:mm'  
+              value-format='HH:mm'
+              format='HH:mm'
             >
             </el-time-picker>
           </el-form-item>
@@ -134,8 +134,8 @@
             <el-time-picker
               v-model="form.pickeroptions.end"
               placeholder="结束时间"
-              value-format='HH:mm'  
-              format='HH:mm'  
+              value-format='HH:mm'
+              format='HH:mm'
             >
             </el-time-picker>
           </el-form-item>
@@ -147,7 +147,7 @@
               }"
               placeholder="步长"
               value-format='HH:mm'
-              format='HH:mm'  
+              format='HH:mm'
             >
             </el-time-picker>
           </el-form-item>
@@ -184,8 +184,8 @@
             <el-color-picker v-model="form.textcolor" show-alpha></el-color-picker>
           </el-form-item>
 
-          
-          
+
+
 
           <!-- 日期选择 -->
           <el-form-item v-if='form.showFrom.indexOf("datetype") !== -1 ' label="选择单位">
@@ -212,7 +212,7 @@
               <el-input v-model="form.rangeseparator"></el-input>
             </el-form-item>
           </div>
-          
+
           <!-- 单选 -->
           <el-form-item v-if='form.showFrom.indexOf("radiotype") !== -1 ' label="展示类型">
             <el-select style="width:100%" v-model="form.radiotype" placeholder="请选择">
@@ -277,7 +277,7 @@
             </el-table-column>
           </el-table>
           <el-button v-if='form.showFrom.indexOf("option") !== -1 && form.datatype == "option" ' size='mini' @click="addoption" style="margin-top:10px">增加选项</el-button>
-            
+
 
           <!-- 表格 -->
           <el-form-item v-if='form.showFrom.indexOf("border") !== -1' label="是否边框">
@@ -286,7 +286,7 @@
           <el-form-item v-if='form.showFrom.indexOf("stripe") !== -1' label="斑马纹">
             <el-switch v-model="form.stripe" active-color="#13ce66" inactive-color="#ff4949"></el-switch>
           </el-form-item>
-          
+
         </el-form>
       </el-tab-pane>
       <el-tab-pane label="校验设置" name="2">
@@ -351,7 +351,7 @@
             </el-select>
           </el-form-item>
           <el-form-item label="字段宽度">
-            <el-input-number style="width:100%" :min="80" :max="200" :step="1" stepstrictly v-model="formsetting.labelwidth"></el-input-number>
+            <el-input-number style="width:100%" :min="50" :max="200" :step="1" stepstrictly v-model="formsetting.labelwidth"></el-input-number>
           </el-form-item>
           <el-form-item label="组件尺寸">
             <el-select style="width:100%" v-model="formsetting.formsize" placeholder="请选择">
@@ -446,7 +446,7 @@ export default {
   computed:{
     fieldsdata () {
       let ret = []
-      // 是数组      
+      // 是数组
       if (Array.isArray(this.fields)) {
         ret = this.fields
       }
@@ -471,7 +471,7 @@ export default {
     },
     // 删除选项
     handleDelete (index) {
-     
+
       this.form.deleteOption(index)
     },
     addoption () {
